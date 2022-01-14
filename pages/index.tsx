@@ -1,9 +1,18 @@
 import type { NextPage } from 'next';
+import Navigation from '../components/Navigation';
+import Header from '../components/Header';
+import ToTop from '../components/ToTop';
 
-const index: NextPage = () => {
+const home: NextPage = () => {
   return (
-    <p className="text-blue-300">Hello Next.js</p>
+    <div className="min-h-screen h-[400vh] w-full px-20 my-14 relative">
+      <Header />
+      
+      <Navigation />
+
+      <ToTop />
+    </div>
   );
 }
 
-export default index;
+export default home;

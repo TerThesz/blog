@@ -1,7 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-  
+
+  html, body {
+    @apply w-full h-full m-0 p-0 font-['manrope'] scroll-smooth;
+  }
+
+
+  *,
+  *::after
+  *::after {
+    @apply box-border;
+  }
+
+  .navigation li {
+    @apply inline-block mx-5 opacity-50 relative cursor-pointer
+           after:absolute after:content-[''] after:w-[8px] after:h-[2px] after:bg-black after:opacity-0
+           after:rounded-full after:-bottom-[.15rem] after:left-1/2 after:-translate-x-1/2
+           after:transition-all after:duration-200 after:ease-linear;
+  }
+
+  .navigation li:hover {
+    @apply after:opacity-50 opacity-70;
+  }
+
+  .navigation li.active {
+    @apply after:w-[38px] after:block after:opacity-100
+           text-black opacity-100 font-medium;
+  }
+
+  #profile-picture:hover + #profile-hover {
+    @apply opacity-100;
+  }
+
+}
+
+header.scrolled {
+  position: sticky;
+  top: 10px;
+
+  animation: header_scrolled 0.1s forwards;
+}
+
+header.scrolled #category {
+  animation: header_scrolled_h1 0.1s forwards;
+
+  cursor: pointer;
+  pointer-events: none;
+} 
+
+@keyframes header_scrolled {
+  to {
+    box-shadow: rgba(149, 157, 165, 0.15) 0px 0px 24px;
+    padding: 0 1rem 0 1rem;
+  }
+}
+
+@keyframes header_scrolled_h1 {
+  to {
+    font-size: 1.5rem;
+    padding: 1rem;
+    font-weight: 500;
+  }
 }
